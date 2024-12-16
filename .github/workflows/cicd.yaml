@@ -33,6 +33,14 @@ jobs:
         shell: bash
 
 
+      - name: Deploy to Tomcat
+        run: |
+          WAR_FILE=$(ls target/*.war | head -n 1) # Get the first .war file
+          curl --upload-file "$WAR_FILE" \
+          --user ${{ secrets.TOMCAT_USERNAME }}:${{ secrets.TOMCAT_PASSWORD }} \
+          ${{ secrets.TOMCAT_URL }}/manager/text/deploy?path=/myapp
+
+
 
 #      - name: "Building Docker Image"
 #        run: |
@@ -43,21 +51,21 @@ jobs:
 
 
 
-      - name: "Setup GCP SDK"
-        uses: "google-github-actions/setup-gcloud@v2"
+#      - name: "Setup GCP SDK"
+#        uses: "google-github-actions/setup-gcloud@v2"
+#
+#      - name: "setup service account"
+#        uses: "google-github-actions/auth@v2"
+#        with:
+#          credentials_json: "${{ secrets.SERVICE_ACCOUNT_CREDS }}"
 
-      - name: "setup service account"
-        uses: "google-github-actions/auth@v2"
-        with:
-          credentials_json: "${{ secrets.SERVICE_ACCOUNT_CREDS }}"
-
-      - name: "Setting up Docker credentials"
-        run: |
-          #!/bin/bash
-          gcloud auth configure docker us-central1-docker.pkg.dev
-
-        shell: bash
-
+#      - name: "Setting up Docker credentials"
+#        run: |
+#          #!/bin/bash
+#          gcloud auth configure docker us-central1-docker.pkg.dev
+#
+#        shell: bash
+-
 #      - name: "Upload image to GCP artifacts"
 #        run: |
 #          #!/bin/bash
