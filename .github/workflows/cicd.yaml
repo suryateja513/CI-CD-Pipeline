@@ -32,12 +32,16 @@ jobs:
 
         shell: bash
 
-      - name: "Building Docker Image"
-        run: |
-          #!/bin/bash
-          docker build -t ci-cd .
 
-        shell: bash
+
+#      - name: "Building Docker Image"
+#        run: |
+#          #!/bin/bash
+#          docker build -t ci-cd .
+#
+#        shell: bash
+
+
 
       - name: "Setup GCP SDK"
         uses: "google-github-actions/setup-gcloud@v2"
@@ -54,9 +58,9 @@ jobs:
 
         shell: bash
 
-      - name: "Upload image to GCP artifacts"
-        run: |
-          #!/bin/bash
-          
-          docker tag ci-cd:latest us-central1-docker.pkg.dev/prefab-icon-441814-j7/surya-artifact/ci-cd:latest
-          docker push us-central1-docker.pkg.dev/prefab-icon-441814-j7/surya-artifact/ci-cd:latest
+#      - name: "Upload image to GCP artifacts"
+#        run: |
+#          #!/bin/bash
+#
+#          docker tag ci-cd:latest us-central1-docker.pkg.dev/prefab-icon-441814-j7/surya-artifact/ci-cd:latest
+#          docker push us-central1-docker.pkg.dev/prefab-icon-441814-j7/surya-artifact/ci-cd:latest
