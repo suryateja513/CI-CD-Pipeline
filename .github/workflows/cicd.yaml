@@ -28,7 +28,7 @@ jobs:
         run: |
           #!/bin/bash
           
-          mvn package --file pom.xml
+          mvn clean package
 
         shell: bash
 
