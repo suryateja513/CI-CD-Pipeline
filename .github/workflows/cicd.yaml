@@ -65,7 +65,7 @@ jobs:
 #          gcloud auth configure docker us-central1-docker.pkg.dev
 #
 #        shell: bash
--
+
 #      - name: "Upload image to GCP artifacts"
 #        run: |
 #          #!/bin/bash
