@@ -1,4 +1,4 @@
-name: ci-cd-pipeline #added
+name: ci-cd-pipeline
 
 on:
   workflow_dispatch:
