@@ -34,7 +34,7 @@ jobs:
 
       - name: Install Tomcat
         run: |
-          wget https://https://tomcat.apache.org/download-11.cgi#11.0.2
+          wget https://dlcdn.apache.org/tomcat/tomcat-11/v11.0.2/bin/apache-tomcat-11.0.2.tar.gz
           sudo mkdir -p /opt/tomcat
           sudo tar xzf apache-tomcat-11.0.2-M11.tar.gz -C /opt/tomcat --strip-components=1
           sudo chmod +x /opt/tomcat/bin/*.sh
