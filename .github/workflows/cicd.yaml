@@ -52,7 +52,7 @@ jobs:
           WAR_FILE=$(ls target/*.war | head -n 1) # Get the first .war file
           curl --upload-file "$WAR_FILE" \
           --user ${{ secrets.TOMCAT_USERNAME }}:${{ secrets.TOMCAT_PASSWORD }} \
-          http://localhost:8080/manager/text/deploy?path=/calculator
+          http://localhost:8080/manager/text/deploy?path=/jenkins_calci-1.0-SNAPSHOT
 
 
 
