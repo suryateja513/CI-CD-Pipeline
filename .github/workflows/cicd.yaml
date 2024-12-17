@@ -32,6 +32,10 @@ jobs:
 
         shell: bash
 
+      - name: "Start TOMCAT"
+        run: |
+          /opt/tomcat/bin/startup.sh
+
 
       - name: Deploy to Tomcat
         run: |
