@@ -28,7 +28,7 @@ jobs:
         run: |
           #!/bin/bash
           
-          mvn clean package
+          mvn package --file pom.xml
 
         shell: bash
 
@@ -41,7 +41,7 @@ jobs:
 
       - name: "Start TOMCAT"
         run: |
-          sudo chown -R $USER:$USER /opt/tomcat
+          sudo chown -R tomcat:tomcat /opt/tomcat
           sudo chmod -R 755 /opt/tomcat
           sudo chmod -R 777 /opt/tomcat/logs /opt/tomcat/temp /opt/tomcat/work
           /opt/tomcat/bin/startup.sh
@@ -53,6 +53,15 @@ jobs:
           curl --upload-file "$WAR_FILE" \
           --user ${{ secrets.TOMCAT_USERNAME }}:${{ secrets.TOMCAT_PASSWORD }} \
           http://localhost:8080/manager/text/deploy?path=/jenkins_calci-1.0-SNAPSHOT
+
+      - name: Verify .war file existence
+        run: |
+          ls -l target/*.war
+
+#      - name: Print WAR File Path
+#        run:
+#          echo "WAR file: $WAR_FILE"
+
 
 
 
