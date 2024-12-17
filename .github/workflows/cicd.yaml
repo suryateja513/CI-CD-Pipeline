@@ -41,7 +41,7 @@ jobs:
 
       - name: "Start TOMCAT"
         run: |
-          sudo chown -R tomcat:tomcat /opt/tomcat
+          sudo chown -R root:root /opt/tomcat
           sudo chmod -R 755 /opt/tomcat
           sudo chmod -R 777 /opt/tomcat/logs /opt/tomcat/temp /opt/tomcat/work
           /opt/tomcat/bin/startup.sh
